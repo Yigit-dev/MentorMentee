@@ -11,6 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <!-- LAZY LOADING -->
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/mentors">Mentors</RouterLink>
       </nav>
     </div>
   </header>
