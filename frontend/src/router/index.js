@@ -29,7 +29,8 @@ const router = createRouter({
       path: '/mentors',
       name: 'mentors',
       component: () => import('../views/MentorsView.vue')
-    }
+    },
+    
   ]
 })
 
