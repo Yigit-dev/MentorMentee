@@ -24,6 +24,37 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ContactView.vue')
+    },
+    {
+      path: '/questionanswer',
+      name: 'questionanswer',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/QuestionanswerView.vue')
+    }
+    ,
+    {
+      path: '/deneme',
+      name: 'deneme',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/denemeView.vue')
+    },{
+      path: '/addqa',
+      name: 'addqa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AddQaView.vue')
+    },{
+      path: '/updateqa',
+      name: 'updateqa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/UpdateQaView.vue')
     }
   ]
 })

@@ -6,11 +6,14 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">  Home  </RouterLink>
         <!-- a href -->
         <!-- LAZY LOADING -->
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/about">  About  </RouterLink>
+        <RouterLink to="/contact">  Contact  </RouterLink>
+        <RouterLink to="/questionanswer"> Q/A </RouterLink>
+        <RouterLink to="/deneme"> deneme </RouterLink>
+        
       </nav>
     </div>
   </header>
