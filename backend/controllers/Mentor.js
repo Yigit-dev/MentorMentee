@@ -1,61 +1,43 @@
-const mentorSchema = require('../models/Mentor');
+const Mentor = require('../model/Mentor');
+const User = require('../model/User');
 
-const mentors = async(req, res) => {
+const getMentors = async (req, res) => {
     try {
-        const mentor = await mentorSchema.find()
-        res.status(200).json({
-            mentor
-        })
+        const mentors = await User.find({ role: 'Mentor' });
+        res.status(200).json({ mentors });
     } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
+        res.status(500).json({ message: error.message });
     }
-}
+};
 
-const mentorDetail = async(req, res) => {
+const getMentorDetail = async (req, res) => {
     try {
-        const {id} = req.params
-        const mentorDetail = await PostSchema.findById(id)
-        res.status(201).json({
-            mentorDetail
-        })
+        const { id } = req.params;
+        const mentorDetail = await Mentor.findById(id);
+        res.status(200).json({ mentorDetail });
     } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
+        res.status(500).json({ message: error.message });
     }
-}
+};
 
-const mentorUpdate = async(req, res) => {
+const updateMentor = async (req, res) => {
     try {
-        const {id} = req.params
-        const updateMentor = await PostSchema.findByIdAndUpdate(id, req.body, {new: true})
-        res.status(201).json({
-            updateMentor
-        })
+        const { id } = req.params;
+        const updatedMentor = await Mentor.findByIdAndUpdate(id, req.body, { new: true });
+        res.status(200).json({ updatedMentor });
     } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
+        res.status(500).json({ message: error.message });
     }
-}
+};
 
 const searchMentor = async (req, res) => {
-    const {search} = req.query
+    const { search } = req.query;
     try {
-        const title = new RegExp(search, "i")
-
-        const mentors = await mentorSchema.find({ $or: [{title}], $tag: {$in: tag.split(",")}})
-
-        res.status(201).json({
-            mentors
-        })
+        const mentors = await Mentor.find({ title: new RegExp(search, "i") });
+        res.status(200).json({ mentors });
     } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
+        res.status(500).json({ message: error.message });
     }
-}
+};
 
-module.exports = { mentors, mentorDetail, mentorUpdate, mentorDelete, searchMentor }
+module.exports = { getMentors, getMentorDetail, updateMentor, searchMentor };

@@ -1,11 +1,11 @@
-const menteeSchema = require('../models/Mentee.js')
+const menteeSchema = require('../model/Mentee.js')
+const userSchema = require('../model/User.js')
 
-
-const getMentee = async(req,res) =>{
+const mentees = async(req,res) =>{
     try{
-        const newMentee =await menteeSchema.find()
+        const mentee = await userSchema.find({role:'Mentee'})
         res.status(200).json({
-            newMentee
+            mentee
         })
 
     }catch(error){
@@ -13,7 +13,8 @@ const getMentee = async(req,res) =>{
 
     }
 }
-const getMenteeDetail = async(req,res) =>{
+
+const menteeDetail = async(req,res) =>{
     try{
         const {id} = req.params;
         const DetailMentee =await menteeSchema.findById(id)
@@ -26,7 +27,8 @@ const getMenteeDetail = async(req,res) =>{
 
     }
 }
-const getMenteeUpdate = async(req,res) =>{
+
+const menteeUpdate = async(req,res) =>{
     try{
         const {id} = req.params;
         const updateMentee =await menteeSchema.findByIdAndUpdate(id,req.body,{new:true})
@@ -41,4 +43,4 @@ const getMenteeUpdate = async(req,res) =>{
 }
 
 
-module.exports = {getMentee,getMenteeDetail,getMenteeUpdate,deleteMentee}
+module.exports = { mentees, menteeDetail, menteeUpdate }

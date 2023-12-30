@@ -1,10 +1,10 @@
 const express = require('express');
-const { getMentee, getMenteeDetail, getMenteeUpdate, deleteMentee } = require('../controllers/Mentee.js');
+const { mentees, menteeDetail, menteeUpdate } = require('../controllers/Mentee.js');
 const role = require('../middleware/Role.js');
 const router = express.Router();
 
-router.get('/getMentee',getMentee)
-router.get('/getMenteeDetail/:id', role.isMentee, getMenteeDetail)
-router.patch('/getMenteeUpdate/:id', role.isMentee, getMenteeUpdate)
+router.get('/', role.isMentor, mentees)
+router.get('/detail/:id', role.isMentor, menteeDetail)
+router.patch('/update/:id', role.isMentee, menteeUpdate)
 
 module.exports = router
